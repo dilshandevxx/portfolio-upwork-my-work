@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   Menu, X, 
-  Home, User, Briefcase, Mail, 
+  Home, User, Briefcase, Mail, Sparkles,
   Github, Twitter, Linkedin
 } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "/", icon: Home },
+  { name: "Works", href: "/projects", icon: Briefcase },
   { name: "About", href: "#about", icon: User },
-  { name: "Services", href: "#services", icon: Briefcase },
+  { name: "Services", href: "#services", icon: Sparkles },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 
