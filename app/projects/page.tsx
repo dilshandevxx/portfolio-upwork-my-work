@@ -27,13 +27,13 @@ export default function ProjectsPage() {
         </div>
 
         {/* Filter Bar */}
-        <div className="mb-12 overflow-x-auto pb-4 scrollbar-hide">
-          <div className="flex items-center gap-2">
+        <div className="mb-12">
+          <div className="flex flex-wrap items-center gap-3">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
                     ? "bg-white text-black"
                     : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800"
