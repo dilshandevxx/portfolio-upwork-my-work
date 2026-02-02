@@ -117,9 +117,9 @@ export default function Header() {
               variants={sidebarVariants}
               className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-zinc-950 z-[70] border-r border-zinc-800 shadow-2xl md:hidden overflow-y-auto"
             >
-                <div className="p-8 flex flex-col h-full">
+                <div className="p-6 flex flex-col h-full">
                     {/* Header Profile */}
-                    <div className="flex items-center gap-4 mb-12">
+                    <div className="flex items-center gap-4 mb-8">
                         <div className="flex flex-col">
                             <h3 className="text-white font-black text-xl tracking-tight">INSPIRE.</h3>
                             <p className="text-zinc-500 text-[10px] tracking-widest uppercase mt-1">Portfolio &bull; 2024</p>
@@ -133,8 +133,8 @@ export default function Header() {
                     </div>
 
                     {/* Main Menu */}
-                    <div className="mb-10">
-                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Menu</h4>
+                    <div className="mb-6">
+                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">Menu</h4>
                         <div className="flex flex-col gap-1">
                              {navLinks.map((link) => {
                                  const Icon = link.icon;
@@ -147,7 +147,7 @@ export default function Header() {
                                             setActiveTab(link.name);
                                             setIsOpen(false);
                                         }}
-                                        className={`group flex items-center gap-4 px-4 py-4 rounded-lg transition-all duration-300 ${
+                                        className={`group flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300 ${
                                             isActive 
                                             ? "bg-white text-black" 
                                             : "text-zinc-400 hover:text-white"
@@ -163,7 +163,7 @@ export default function Header() {
 
                     {/* Socials / Other */}
                     <div>
-                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Connect</h4>
+                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">Connect</h4>
                          <div className="flex flex-col gap-1">
                              {socialLinks.map((link) => {
                                  const Icon = link.icon;
@@ -171,7 +171,7 @@ export default function Header() {
                                      <a
                                         key={link.name}
                                         href={link.href}
-                                        className="flex items-center gap-4 px-4 py-4 rounded-lg text-zinc-400 hover:text-white transition-all duration-300"
+                                        className="flex items-center gap-4 px-4 py-3 rounded-lg text-zinc-400 hover:text-white transition-all duration-300"
                                      >
                                          <Icon size={18} strokeWidth={1.5} />
                                          <span className="text-sm font-medium tracking-wide">{link.name}</span>
@@ -182,7 +182,7 @@ export default function Header() {
                     </div>
 
                     {/* Bottom Info */}
-                    <div className="mt-auto pt-8 border-t border-zinc-900/50">
+                    <div className="mt-auto pt-6 border-t border-zinc-900/50">
                         <div className="px-4 py-3 rounded-lg border border-zinc-800/50 flex items-center justify-between">
                             <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Status: Available</span>
                             <div className="flex items-center gap-2">
