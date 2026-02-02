@@ -5,10 +5,11 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const services = [
-  { id: "01", name: "Website Design", desc: "Crafting digital experiences that merge functionality with aesthetics.", image: "/images/hero.png" },
-  { id: "02", name: "Brand Design", desc: "Building visual identities that resonate and leave a lasting impression.", image: "/images/project1.png" },
-  { id: "03", name: "Motion Design", desc: "Adding life and interactivity to tell better stories.", image: "/images/project2.png" },
-  { id: "04", name: "Graphic Design", desc: "Creating visual assets that communicate clarity and style.", image: "/images/project3.png" },
+  { id: "01", name: "Website Development", desc: "Fast, responsive, and scalable websites.", image: "/images/hero.png" },
+  { id: "02", name: "Frontend Development", desc: "Interactive UI using HTML, CSS, JavaScript, and React.", image: "/images/project1.png" },
+  { id: "03", name: "Backend Development", desc: "Secure APIs, authentication, and databases.", image: "/images/project2.png" },
+  { id: "04", name: "Full-Stack Development", desc: "Complete end-to-end web solutions.", image: "/images/project3.png" },
+  { id: "05", name: "AI-Powered Applications", desc: "Smart, data-driven applications powered by AI.", image: "/images/hero.png" },
 ];
 
 export default function Services() {
