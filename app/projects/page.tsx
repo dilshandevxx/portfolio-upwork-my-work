@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects, categories, ProjectCategory } from "@/lib/projects";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Github } from "lucide-react";
 
 export default function ProjectsPage() {
@@ -61,6 +62,7 @@ export default function ProjectsPage() {
                 key={project.id}
                 className="group cursor-pointer"
               >
+               <Link href={`/projects/${project.id}`} className="block h-full">
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] bg-zinc-900 rounded-2xl overflow-hidden mb-6 border border-zinc-800/50">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
@@ -105,6 +107,7 @@ export default function ProjectsPage() {
                         ))}
                     </div>
                 </div>
+               </Link>
               </motion.div>
             ))}
           </AnimatePresence>
