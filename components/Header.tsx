@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const navLinks = [
   { name: "HOME", href: "/" },
@@ -27,13 +27,13 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     closed: {
       opacity: 0,
       y: "-100%",
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as any,
         staggerChildren: 0.1,
         staggerDirection: -1
       }
@@ -43,7 +43,7 @@ export default function Header() {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as any,
         staggerChildren: 0.1,
         delayChildren: 0.3
       }
