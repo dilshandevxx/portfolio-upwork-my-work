@@ -103,7 +103,7 @@ export default function Header() {
                 animate="open"
                 exit="closed"
                 variants={backdropVariants}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] mix-blend-normal md:hidden"
                 onClick={() => setIsOpen(false)}
             />
 
@@ -113,7 +113,7 @@ export default function Header() {
               animate="open"
               exit="closed"
               variants={sidebarVariants}
-              className="fixed top-0 left-0 bottom-0 w-[80%] max-w-[320px] bg-zinc-900 z-50 shadow-2xl md:hidden overflow-y-auto"
+              className="fixed top-0 left-0 bottom-0 w-[80%] max-w-[320px] bg-zinc-900 z-[70] mix-blend-normal shadow-2xl md:hidden overflow-y-auto"
             >
                 <div className="p-6 flex flex-col h-full">
                     {/* Header Profile */}
