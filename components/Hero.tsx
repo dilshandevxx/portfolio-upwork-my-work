@@ -25,19 +25,19 @@ export default function Hero() {
             </motion.h1>
 
              {/* Introduction Text */}
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="mt-12 md:mt-24 max-w-lg text-lg md:text-xl text-zinc-400 font-light leading-relaxed"
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="mt-16 md:mt-24 max-w-xl"
             >
-              Multidisciplinary <span className="text-white font-medium">designer</span> creating{" "}
-              <span className="text-white font-medium">clean</span> and functional designs for{" "}
-              <span className="inline-flex items-center justify-center align-middle mx-1">
-                <span className="size-6 bg-orange-500 rounded-full inline-block animate-pulse" />
-              </span>{" "}
-              brands, products, and experiences.
-            </motion.p>
+                <div className="w-12 h-[1px] bg-indigo-500 mb-8" />
+                <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed">
+                    Multidisciplinary <span className="text-white font-['var(--font-playfair)'] italic">designer</span> creating{" "}
+                    <span className="text-white font-['var(--font-playfair)'] italic">clean</span> and functional designs for 
+                    brands, products, and <span className="text-white font-['var(--font-playfair)'] italic">experiences</span>.
+                </p>
+            </motion.div>
           </div>
 
           {/* Floating Image */}

@@ -18,26 +18,34 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-zinc-950 px-6 pt-32 pb-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-            Selected Works
-          </h1>
-          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed">
-            A curated collection of projects spanning AI, full-stack development, and digital experiences.
-          </p>
+        <div className="mb-20">
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.6 }}
+          >
+             <h1 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter loading-tight">
+               <span className="font-['var(--font-playfair)'] italic font-normal text-zinc-400">Selected</span>{" "}
+               <span>Works</span>
+             </h1>
+             <div className="w-12 h-[1px] bg-indigo-500 mb-8" />
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed max-w-2xl">
+                A curated collection of projects spanning <span className="text-white">AI</span>, <span className="text-white">full-stack development</span>, and digital experiences.
+             </p>
+          </motion.div>
         </div>
 
         {/* Filter Bar */}
-        <div className="mb-12">
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="mb-16">
+          <div className="flex flex-wrap items-center gap-3 md:gap-4">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm md:text-base transition-all duration-300 border ${
                   activeCategory === category
-                    ? "bg-white text-black"
-                    : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800"
+                    ? "bg-white text-black border-white"
+                    : "bg-transparent text-zinc-500 border-zinc-800 hover:text-white hover:border-zinc-600"
                 }`}
               >
                 {category}
