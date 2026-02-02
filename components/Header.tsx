@@ -63,35 +63,37 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 text-white mix-blend-difference">
-      <div className="flex items-center gap-12 z-50">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          inspire
-        </Link>
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-xs font-medium tracking-widest text-zinc-400 hover:text-white transition-colors uppercase"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-      </div>
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
+      <div className="flex items-center justify-between w-full text-white mix-blend-difference relative z-50">
+        <div className="flex items-center gap-12">
+          <Link href="/" className="text-xl font-bold tracking-tight">
+            inspire
+          </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-xs font-medium tracking-widest text-zinc-400 hover:text-white transition-colors uppercase"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-      <div className="flex items-center gap-4 z-50">
-        <button className="hidden md:block text-xs font-medium tracking-widest border border-zinc-700 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors">
-          LET'S TALK
-        </button>
-        <button
-          className="md:hidden p-2 text-white"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open menu"
-        >
-          <Menu size={24} />
-        </button>
+        <div className="flex items-center gap-4">
+          <button className="hidden md:block text-xs font-medium tracking-widest border border-zinc-700 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors">
+            LET'S TALK
+          </button>
+          <button
+            className="md:hidden p-2 text-white"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -113,7 +115,7 @@ export default function Header() {
               animate="open"
               exit="closed"
               variants={sidebarVariants}
-              className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-zinc-950 z-[70] mix-blend-normal border-r border-zinc-800 shadow-2xl md:hidden overflow-y-auto"
+              className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-zinc-950 z-[70] border-r border-zinc-800 shadow-2xl md:hidden overflow-y-auto"
             >
                 <div className="p-6 flex flex-col h-full">
                     {/* Header Profile */}
