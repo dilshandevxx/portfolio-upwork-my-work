@@ -117,28 +117,25 @@ export default function Header() {
               variants={sidebarVariants}
               className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-zinc-950 z-[70] border-r border-zinc-800 shadow-2xl md:hidden overflow-y-auto"
             >
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-8 flex flex-col h-full">
                     {/* Header Profile */}
-                    <div className="flex items-center gap-4 mb-10">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
-                            IN
-                        </div>
-                        <div>
-                            <h3 className="text-white font-bold text-lg">Inspire Portfolio</h3>
-                            <p className="text-zinc-400 text-xs">Creative Developer</p>
+                    <div className="flex items-center gap-4 mb-12">
+                        <div className="flex flex-col">
+                            <h3 className="text-white font-black text-xl tracking-tight">INSPIRE.</h3>
+                            <p className="text-zinc-500 text-[10px] tracking-widest uppercase mt-1">Portfolio &bull; 2024</p>
                         </div>
                         <button 
                             onClick={() => setIsOpen(false)}
-                            className="ml-auto p-2 text-zinc-400 hover:text-white"
+                            className="ml-auto text-zinc-500 hover:text-white transition-colors"
                         >
-                            <X size={20} />
+                            <X size={24} strokeWidth={1.5} />
                         </button>
                     </div>
 
                     {/* Main Menu */}
-                    <div className="mb-8">
-                        <h4 className="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-4 px-4">Main Menu</h4>
-                        <div className="flex flex-col gap-2">
+                    <div className="mb-10">
+                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Menu</h4>
+                        <div className="flex flex-col gap-1">
                              {navLinks.map((link) => {
                                  const Icon = link.icon;
                                  const isActive = activeTab === link.name;
@@ -150,14 +147,14 @@ export default function Header() {
                                             setActiveTab(link.name);
                                             setIsOpen(false);
                                         }}
-                                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
+                                        className={`group flex items-center gap-4 px-4 py-4 rounded-lg transition-all duration-300 ${
                                             isActive 
-                                            ? "bg-indigo-600 text-white shadow-lg shadow-indigo-900/20" 
-                                            : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                                            ? "bg-white text-black" 
+                                            : "text-zinc-400 hover:text-white"
                                         }`}
                                      >
-                                         <Icon size={20} />
-                                         <span className="font-medium">{link.name}</span>
+                                         <Icon size={18} strokeWidth={isActive ? 2 : 1.5} className="group-hover:scale-110 transition-transform duration-300" />
+                                         <span className="text-sm font-medium tracking-wide">{link.name}</span>
                                      </Link>
                                  );
                              })}
@@ -166,18 +163,18 @@ export default function Header() {
 
                     {/* Socials / Other */}
                     <div>
-                        <h4 className="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-4 px-4">Connect</h4>
-                         <div className="flex flex-col gap-2">
+                        <h4 className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Connect</h4>
+                         <div className="flex flex-col gap-1">
                              {socialLinks.map((link) => {
                                  const Icon = link.icon;
                                  return (
                                      <a
                                         key={link.name}
                                         href={link.href}
-                                        className="flex items-center gap-4 px-4 py-3 rounded-xl text-zinc-400 hover:bg-white/5 hover:text-white transition-all duration-200"
+                                        className="flex items-center gap-4 px-4 py-4 rounded-lg text-zinc-400 hover:text-white transition-all duration-300"
                                      >
-                                         <Icon size={20} />
-                                         <span className="font-medium">{link.name}</span>
+                                         <Icon size={18} strokeWidth={1.5} />
+                                         <span className="text-sm font-medium tracking-wide">{link.name}</span>
                                      </a>
                                  );
                              })}
@@ -185,10 +182,12 @@ export default function Header() {
                     </div>
 
                     {/* Bottom Info */}
-                    <div className="mt-auto pt-8 border-t border-white/5">
-                        <div className="px-4 py-4 rounded-xl bg-zinc-800/50 flex items-center justify-between">
-                            <span className="text-xs text-zinc-400">Available for work</span>
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <div className="mt-auto pt-8 border-t border-zinc-900/50">
+                        <div className="px-4 py-3 rounded-lg border border-zinc-800/50 flex items-center justify-between">
+                            <span className="text-[10px] text-zinc-500 uppercase tracking-wider">Status: Available</span>
+                            <div className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            </div>
                         </div>
                     </div>
                 </div>
