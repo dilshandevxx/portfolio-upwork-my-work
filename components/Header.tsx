@@ -2,18 +2,29 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { 
+  Menu, X, 
+  Home, User, Briefcase, Mail, 
+  Github, Twitter, Linkedin
+} from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const navLinks = [
-  { name: "HOME", href: "/" },
-  { name: "ABOUT", href: "#about" },
-  { name: "SERVICES", href: "#services" },
-  { name: "CONTACT", href: "#contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "#about", icon: User },
+  { name: "Services", href: "#services", icon: Briefcase },
+  { name: "Contact", href: "#contact", icon: Mail },
+];
+
+const socialLinks = [
+    { name: "Github", href: "#", icon: Github },
+    { name: "Twitter", href: "#", icon: Twitter },
+    { name: "LinkedIn", href: "#", icon: Linkedin },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Home");
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -27,32 +38,28 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  const menuVariants: Variants = {
+  const sidebarVariants: Variants = {
     closed: {
-      opacity: 0,
-      y: "-100%",
+      x: "-100%",
       transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as any,
-        staggerChildren: 0.1,
-        staggerDirection: -1
+        type: "spring",
+        stiffness: 400,
+        damping: 40
       }
     },
     open: {
-      opacity: 1,
-      y: 0,
+      x: "0%",
       transition: {
-        duration: 0.7,
-        ease: [0.76, 0, 0.24, 1] as any,
-        staggerChildren: 0.1,
-        delayChildren: 0.3
+        type: "spring",
+        stiffness: 400,
+        damping: 40
       }
     }
   };
 
-  const linkVariants = {
-    closed: { opacity: 0, y: -20 },
-    open: { opacity: 1, y: 0 }
+  const backdropVariants: Variants = {
+    closed: { opacity: 0 },
+    open: { opacity: 1 }
   };
 
   return (
@@ -66,7 +73,7 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-medium tracking-widest text-zinc-400 hover:text-white transition-colors"
+              className="text-xs font-medium tracking-widest text-zinc-400 hover:text-white transition-colors uppercase"
             >
               {link.name}
             </Link>
@@ -80,65 +87,111 @@ export default function Header() {
         </button>
         <button
           className="md:hidden p-2 text-white"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu size={24} />
         </button>
       </div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-            className="fixed inset-0 bg-zinc-950/98 backdrop-blur-xl z-40 flex flex-col justify-between p-8 md:hidden"
-          >
-            {/* Header placeholder to align with main header */}
-            <div className="flex justify-between items-center w-full py-6">
-                 {/* Placeholders can be added here if needed to match header height exactly, 
-                     but flex-col justify-between usually handles content well */}
-            </div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={backdropVariants}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+                onClick={() => setIsOpen(false)}
+            />
 
-            <nav className="flex flex-col gap-2 mt-20">
-              {navLinks.map((link, index) => (
-                <motion.div key={link.name} variants={linkVariants} className="overflow-hidden">
-                  <Link
-                    href={link.href}
-                    className="group flex items-start gap-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <span className="text-sm font-mono text-zinc-500 mt-2">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[12vw] leading-[0.85] font-black tracking-tighter text-white group-hover:text-zinc-400 transition-colors uppercase">
-                      {link.name}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-            
-            <motion.div 
-               variants={linkVariants}
-               className="flex flex-col gap-6 mt-auto mb-10 border-t border-white/10 pt-8"
+            {/* Sidebar */}
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={sidebarVariants}
+              className="fixed top-0 left-0 bottom-0 w-[80%] max-w-[320px] bg-zinc-900 z-50 shadow-2xl md:hidden overflow-y-auto"
             >
-               <div className="flex flex-col gap-2">
-                  <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest">Get in touch</p>
-                  <a href="mailto:hello@inspire.com" className="text-xl text-white font-light">hello@inspire.com</a>
-               </div>
-               
-               <div className="flex gap-6">
-                  {['Twitter', 'Instagram', 'LinkedIn'].map(social => (
-                      <a key={social} href="#" className="text-zinc-400 hover:text-white text-sm uppercase tracking-wider transition-colors">
-                          {social}
-                      </a>
-                  ))}
-               </div>
+                <div className="p-6 flex flex-col h-full">
+                    {/* Header Profile */}
+                    <div className="flex items-center gap-4 mb-10">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                            IN
+                        </div>
+                        <div>
+                            <h3 className="text-white font-bold text-lg">Inspire Portfolio</h3>
+                            <p className="text-zinc-400 text-xs">Creative Developer</p>
+                        </div>
+                        <button 
+                            onClick={() => setIsOpen(false)}
+                            className="ml-auto p-2 text-zinc-400 hover:text-white"
+                        >
+                            <X size={20} />
+                        </button>
+                    </div>
+
+                    {/* Main Menu */}
+                    <div className="mb-8">
+                        <h4 className="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-4 px-4">Main Menu</h4>
+                        <div className="flex flex-col gap-2">
+                             {navLinks.map((link) => {
+                                 const Icon = link.icon;
+                                 const isActive = activeTab === link.name;
+                                 return (
+                                     <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => {
+                                            setActiveTab(link.name);
+                                            setIsOpen(false);
+                                        }}
+                                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
+                                            isActive 
+                                            ? "bg-indigo-600 text-white shadow-lg shadow-indigo-900/20" 
+                                            : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                                        }`}
+                                     >
+                                         <Icon size={20} />
+                                         <span className="font-medium">{link.name}</span>
+                                     </Link>
+                                 );
+                             })}
+                        </div>
+                    </div>
+
+                    {/* Socials / Other */}
+                    <div>
+                        <h4 className="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-4 px-4">Connect</h4>
+                         <div className="flex flex-col gap-2">
+                             {socialLinks.map((link) => {
+                                 const Icon = link.icon;
+                                 return (
+                                     <a
+                                        key={link.name}
+                                        href={link.href}
+                                        className="flex items-center gap-4 px-4 py-3 rounded-xl text-zinc-400 hover:bg-white/5 hover:text-white transition-all duration-200"
+                                     >
+                                         <Icon size={20} />
+                                         <span className="font-medium">{link.name}</span>
+                                     </a>
+                                 );
+                             })}
+                        </div>
+                    </div>
+
+                    {/* Bottom Info */}
+                    <div className="mt-auto pt-8 border-t border-white/5">
+                        <div className="px-4 py-4 rounded-xl bg-zinc-800/50 flex items-center justify-between">
+                            <span className="text-xs text-zinc-400">Available for work</span>
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        </div>
+                    </div>
+                </div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
