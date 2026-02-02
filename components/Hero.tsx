@@ -29,13 +29,13 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-16 md:mt-24 max-w-xl"
+                className="mt-12 md:mt-24 max-w-xl"
             >
-                <div className="w-12 h-[1px] bg-indigo-500 mb-8" />
-                <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed">
-                    Multidisciplinary <span className="text-white font-['var(--font-playfair)'] italic">designer</span> creating{" "}
-                    <span className="text-white font-['var(--font-playfair)'] italic">clean</span> and functional designs for 
-                    brands, products, and <span className="text-white font-['var(--font-playfair)'] italic">experiences</span>.
+                <span className="font-mono text-xs text-indigo-500 tracking-widest uppercase mb-6 block">
+                    // Bio
+                </span>
+                <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed tracking-wide">
+                    <span className="text-white font-normal">Multidisciplinary designer</span> creating <span className="text-white font-normal">clean</span> and <span className="text-white font-normal">functional</span> designs for <span className="text-white font-normal">brands</span>, <span className="text-white font-normal">products</span>, and <span className="text-white font-normal">experiences</span>.
                 </p>
             </motion.div>
           </div>
