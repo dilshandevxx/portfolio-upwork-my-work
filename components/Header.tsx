@@ -94,17 +94,28 @@ export default function Header() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 bg-zinc-950/98 backdrop-blur-xl z-40 flex flex-col justify-between p-8 md:hidden"
           >
-            <nav className="flex flex-col gap-8 text-center">
-              {navLinks.map((link) => (
-                <motion.div key={link.name} variants={linkVariants}>
+            {/* Header placeholder to align with main header */}
+            <div className="flex justify-between items-center w-full py-6">
+                 {/* Placeholders can be added here if needed to match header height exactly, 
+                     but flex-col justify-between usually handles content well */}
+            </div>
+
+            <nav className="flex flex-col gap-2 mt-20">
+              {navLinks.map((link, index) => (
+                <motion.div key={link.name} variants={linkVariants} className="overflow-hidden">
                   <Link
                     href={link.href}
-                    className="text-5xl font-light tracking-tighter text-white hover:text-zinc-400 transition-colors"
+                    className="group flex items-start gap-4"
                     onClick={() => setIsOpen(false)}
                   >
-                    {link.name}
+                    <span className="text-sm font-mono text-zinc-500 mt-2">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[12vw] leading-[0.85] font-black tracking-tighter text-white group-hover:text-zinc-400 transition-colors uppercase">
+                      {link.name}
+                    </span>
                   </Link>
                 </motion.div>
               ))}
@@ -112,11 +123,20 @@ export default function Header() {
             
             <motion.div 
                variants={linkVariants}
-               className="mt-12"
+               className="flex flex-col gap-6 mt-auto mb-10 border-t border-white/10 pt-8"
             >
-               <button onClick={() => setIsOpen(false)} className="text-xs font-medium tracking-widest border border-zinc-700 px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition-colors">
-                 LET'S TALK
-               </button>
+               <div className="flex flex-col gap-2">
+                  <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest">Get in touch</p>
+                  <a href="mailto:hello@inspire.com" className="text-xl text-white font-light">hello@inspire.com</a>
+               </div>
+               
+               <div className="flex gap-6">
+                  {['Twitter', 'Instagram', 'LinkedIn'].map(social => (
+                      <a key={social} href="#" className="text-zinc-400 hover:text-white text-sm uppercase tracking-wider transition-colors">
+                          {social}
+                      </a>
+                  ))}
+               </div>
             </motion.div>
           </motion.div>
         )}
