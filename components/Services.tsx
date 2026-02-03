@@ -5,11 +5,42 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const services = [
-  { id: "01", name: "Website Development", desc: "Fast, responsive, and scalable websites.", image: "/images/hero.png" },
-  { id: "02", name: "Frontend Development", desc: "Interactive UI using HTML, CSS, JavaScript, and React.", image: "/images/project1.png" },
-  { id: "03", name: "Backend Development", desc: "Secure APIs, authentication, and databases.", image: "/images/project2.png" },
-  { id: "04", name: "Full-Stack Development", desc: "Complete end-to-end web solutions.", image: "/images/project3.png" },
-  { id: "05", name: "AI-Powered Applications", desc: "Smart, data-driven applications powered by AI.", image: "/images/hero.png" },
+  { 
+    id: "01", 
+    name: "Landing Page Development", 
+    desc: "High-converting landing pages designed for marketing, startups, and product launches, optimized for speed, SEO, and user engagement.", 
+    image: "/images/hero.png" 
+  },
+  { 
+    id: "02", 
+    name: "Website Development", 
+    desc: "Responsive, scalable websites built for businesses, portfolios, and organizations with modern web standards.", 
+    image: "/images/project1.png" 
+  },
+  { 
+    id: "03", 
+    name: "SaaS Application Development", 
+    desc: "End-to-end development of Software as a Service (SaaS) platforms including multi-user systems, subscriptions, dashboards, and cloud deployment.", 
+    image: "/images/project2.png" 
+  },
+  { 
+    id: "04", 
+    name: "Full-Stack Application Development", 
+    desc: "Complete web application development covering frontend, backend, databases, APIs, and deployment in a single integrated solution.", 
+    image: "/images/project3.png" 
+  },
+  { 
+    id: "05", 
+    name: "AI-Powered Application Development", 
+    desc: "Building intelligent applications using AI models, automation, NLP, and data-driven decision systems.", 
+    image: "/images/hero.png" 
+  },
+  { 
+    id: "06", 
+    name: "Machine Learning Project Development", 
+    desc: "Designing and implementing ML projects including data preprocessing, model training, evaluation, and real-world deployment.", 
+    image: "/images/project1.png" 
+  },
 ];
 
 export default function Services() {
