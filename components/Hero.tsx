@@ -29,19 +29,14 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-12 md:mt-24"
+                className="mt-12 md:mt-24 pl-6 border-l border-zinc-800 max-w-xl"
             >
-                <div className="relative p-8 bg-zinc-900/40 backdrop-blur-md border border-white/10 border-l-4 border-l-indigo-500 rounded-r-lg max-w-xl">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                        <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest">
-                            // Bio
-                        </span>
-                    </div>
-                    <p className="text-xl md:text-2xl text-zinc-300 font-light leading-relaxed">
-                        Multidisciplinary designer creating <span className="text-white font-medium">clean</span> and <span className="text-white font-medium">functional</span> designs for brands, products, and experiences.
-                    </p>
-                </div>
+                <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-6 block">
+                    // Bio
+                </span>
+                <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed">
+                    Multidisciplinary designer creating <span className="text-white font-normal">clean</span> and <span className="text-white font-normal">functional</span> designs for brands, products, and experiences.
+                </p>
             </motion.div>
           </div>
 
