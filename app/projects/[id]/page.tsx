@@ -44,7 +44,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
       </div>
 
       {/* Hero Section */}
-      <div ref={containerRef} className="relative h-screen w-full overflow-hidden">
+      <div ref={containerRef} className="relative h-[85vh] md:h-screen w-full overflow-hidden">
          <motion.div style={{ y, opacity }} className="absolute inset-0 w-full h-full">
             <Image
                 src={project.image}
@@ -57,14 +57,14 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
          </motion.div>
 
-         <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 pb-12">
+         <div className="absolute bottom-0 left-0 w-full p-6 pb-24 md:p-12 md:pb-12">
              <div className="max-w-[90rem] mx-auto">
                  <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                  >
-                     <h1 className="text-[12vw] md:text-[9vw] font-black uppercase leading-[0.8] tracking-tighter mb-6">
+                     <h1 className="text-6xl md:text-[9vw] font-black uppercase leading-[0.9] md:leading-[0.8] tracking-tighter mb-6 break-words">
                         {project.title}
                      </h1>
                  </motion.div>
@@ -75,19 +75,19 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
       {/* Data Strip - The "Stats" Bar */}
       <div className="border-t border-b border-zinc-800 bg-zinc-950 relative z-10">
           <div className="max-w-[90rem] mx-auto px-6 md:px-12">
-              <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-zinc-800 border-x border-zinc-800">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:divide-x divide-zinc-800 border-x border-zinc-800">
                   
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 border-b md:border-b-0 border-zinc-800">
                       <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Role</h3>
                       <p className="text-sm md:text-base font-medium">Design & Dev</p>
                   </div>
                   
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 border-b md:border-b-0 border-zinc-800">
                       <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Year</h3>
                       <p className="text-sm md:text-base font-medium">{project.year}</p>
                   </div>
 
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 border-b md:border-b-0 border-zinc-800">
                        <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Stack</h3>
                        <div className="flex flex-wrap gap-2">
                            {project.tags.slice(0, 2).map((tag) => (
@@ -121,44 +121,44 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
       </div>
 
       {/* Visual Story Content */}
-      <div className="max-w-5xl mx-auto px-6 py-24 md:py-40">
+      <div className="max-w-5xl mx-auto px-6 py-16 md:py-40">
           
           {/* Intro Text */}
-          <div className="mb-24 md:mb-32">
-               <h2 className="text-3xl md:text-5xl font-medium leading-tight md:leading-tight text-zinc-200">
+          <div className="mb-16 md:mb-32">
+               <h2 className="text-2xl md:text-5xl font-medium leading-tight md:leading-tight text-zinc-200">
                   {project.description}
                </h2>
                {project.longDescription && (
-                  <p className="mt-8 text-xl text-zinc-400 leading-relaxed max-w-3xl">
+                  <p className="mt-8 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
                       {project.longDescription}
                   </p>
                )}
           </div>
 
           {/* Full Width Image 1 */}
-          <div className="relative w-full aspect-video md:aspect-[21/9] bg-zinc-900 rounded-lg overflow-hidden mb-24 md:mb-32">
+          <div className="relative w-full aspect-video md:aspect-[21/9] bg-zinc-900 rounded-lg overflow-hidden mb-16 md:mb-32">
               <Image src={project.image} alt="Detail" fill className="object-cover" />
           </div>
 
           {/* Story Text Block */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mb-24 md:mb-32 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mb-16 md:mb-32 items-center">
                <div>
                    <h3 className="text-xs font-mono text-indigo-500 uppercase tracking-widest mb-6">The Challenge</h3>
-                   <p className="text-lg text-zinc-400 leading-relaxed">
+                   <p className="text-base md:text-lg text-zinc-400 leading-relaxed">
                        Every project begins with a core problem. For {project.title}, the challenge was to balance aesthetic minimalism with complex functionality.
                        We experimented with various layout systems before settling on a grid that adapts effectively to different content types.
                    </p>
                </div>
-               <div>
-                    {/* Placeholder for a secondary detail image or graphic */}
-                    <div className="aspect-square bg-zinc-900 rounded-lg overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-                        <Image src={project.image} alt="Detail" fill className="object-cover" />
-                    </div>
+               <div className="hidden md:block">
+                     {/* Placeholder for a secondary detail image or graphic - Hidden on mobile to save space */}
+                     <div className="aspect-square bg-zinc-900 rounded-lg overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+                         <Image src={project.image} alt="Detail" fill className="object-cover" />
+                     </div>
                </div>
           </div>
 
           {/* Large Vertical Image */}
-          <div className="flex justify-center mb-24 md:mb-32">
+          <div className="flex justify-center mb-16 md:mb-32">
               <div className="relative w-full md:w-2/3 aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
                    <Image src={project.image} alt="Mobile View" fill className="object-cover" />
               </div>
@@ -167,7 +167,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
            {/* Conclusion */}
            <div className="text-center max-w-2xl mx-auto mb-12">
                <h3 className="text-xs font-mono text-indigo-500 uppercase tracking-widest mb-6">The Outcome</h3>
-                <p className="text-lg text-zinc-400 leading-relaxed">
+                <p className="text-base md:text-lg text-zinc-400 leading-relaxed">
                      The final result is a robust, scalable platform that not only meets the client's needs but exceeds user expectations in performance and usability.
                 </p>
                 {project.github && (
@@ -182,10 +182,10 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ id: s
 
       {/* Next Project Footer */}
       <div className="border-t border-zinc-800 bg-zinc-900/50">
-          <Link href={`/projects/${nextProject.id}`} className="block group relative overflow-hidden py-32 md:py-48 px-6 md:px-12 text-center">
+          <Link href={`/projects/${nextProject.id}`} className="block group relative overflow-hidden py-24 md:py-48 px-6 md:px-12 text-center">
                <div className="relative z-10 transition-transform duration-500 group-hover:-translate-y-4">
                    <p className="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-4">Next Project</p>
-                   <h2 className="text-6xl md:text-9xl font-black uppercase text-white tracking-tighter">
+                   <h2 className="text-4xl md:text-9xl font-black uppercase text-white tracking-tighter">
                        {nextProject.title}
                    </h2>
                </div>
