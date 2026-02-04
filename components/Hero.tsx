@@ -13,16 +13,25 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
           {/* Main Typography */}
           <div className="flex-1">
-            <motion.h1 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white"
-            >
-              PORTFOLIO
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white">
+              <motion.span 
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.1 }}
+                className="block overflow-hidden"
+              >
+                PORTFOLIO
+              </motion.span>
               <br />
-              <span className="text-zinc-500">STYLE</span>
-            </motion.h1>
+              <motion.span 
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
+                className="block overflow-hidden text-zinc-500"
+              >
+                STYLE
+              </motion.span>
+            </h1>
 
              {/* Introduction Text */}
             <motion.div
@@ -35,7 +44,7 @@ export default function Hero() {
                     // Bio
                 </span>
                 <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed">
-                    Multidisciplinary designer creating <span className="text-white font-normal">clean</span> and <span className="text-white font-normal">functional</span> designs for brands, products, and experiences.
+                    Multidisciplinary designer creating <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300 cursor-none">clean</span> and <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300 cursor-none">functional</span> designs for brands, products, and experiences.
                 </p>
             </motion.div>
           </div>
@@ -44,20 +53,21 @@ export default function Hero() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-            className="relative w-full md:w-[400px] aspect-[4/5] md:mt-12"
+            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+            whileHover={{ scale: 1.02 }}
+            className="relative w-full md:w-[400px] aspect-[4/5] md:mt-12 group"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 mix-blend-overlay z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 mix-blend-overlay z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <Image
               src="/images/hero.png"
               alt="Architecture interior"
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
               priority
             />
             {/* Overlay Caption */}
             <div className="absolute top-6 left-6 z-20">
-               <span className="text-xs font-mono tracking-widest bg-white/10 backdrop-blur px-3 py-1 rounded-full text-white">
+               <span className="text-xs font-mono tracking-widest bg-white/10 backdrop-blur px-3 py-1 rounded-full text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
                  INTERIOR / 2024
                </span>
             </div>
