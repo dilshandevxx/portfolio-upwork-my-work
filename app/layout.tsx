@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import SmoothScroller from "@/components/SmoothScroller";
 import NoiseOverlay from "@/components/NoiseOverlay";
-import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -23,7 +22,6 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} bg-background text-foreground antialiased`}>
         <SmoothScroller />
         <NoiseOverlay />
-        <CustomCursor />
         {children}
       </body>
     </html>

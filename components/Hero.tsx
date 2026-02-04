@@ -44,7 +44,7 @@ export default function Hero() {
                     // Bio
                 </span>
                 <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed">
-                    Multidisciplinary designer creating <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300 cursor-none">clean</span> and <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300 cursor-none">functional</span> designs for brands, products, and experiences.
+                    Multidisciplinary designer creating <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300">clean</span> and <span className="text-white font-normal hover:text-orange-500 transition-colors duration-300">functional</span> designs for brands, products, and experiences.
                 </p>
             </motion.div>
           </div>
